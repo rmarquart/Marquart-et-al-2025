@@ -1,0 +1,67 @@
+/*--------------------------------*- C++ -*----------------------------------*\
+| =========                 |                                                 |
+| \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox           |
+|  \\    /   O peration     | Version:  2.4.0                                 |
+|   \\  /    A nd           | Web:      www.OpenFOAM.org                      |
+|    \\/     M anipulation  |                                                 |
+\*---------------------------------------------------------------------------*/
+FoamFile
+{
+    version     2.0;
+    format      ascii;
+    class       dictionary;
+    location    "system";
+    object      fvSchemes;
+}
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
+ddtSchemes
+{
+    default     Euler;
+}
+
+gradSchemes
+{
+    default     leastSquares;
+}
+
+divSchemes
+{
+    default none;
+    div((interpolate(h)*phi),U) Gauss vanAlbada grad(U);
+
+    div((alpha.grease*((etaG*gradU.T())|rho))) Gauss linear;
+    div((alpha.floe*((((etaF*gradU.T())+(((zetaF-etaF)*(1,0,0,0,1,0,0,0,1))*tr(gradU)))-(zetaF*gradU))|rho))) Gauss linear;
+
+    div(phi,alpha3) Gauss vanAlbada;
+    div(phi,h) Gauss vanAlbada;
+}
+
+laplacianSchemes
+{
+    default     Gauss linear corrected;
+}
+
+interpolationSchemes
+{
+    default     linear;
+}
+
+snGradSchemes
+{
+    default none;
+    snGrad(Sigma) faceCorrected;
+    snGrad(((alpha.floe|rho)*Sigma)) faceCorrected;
+    snGrad(P) corrected;
+}
+
+fluxRequired
+{
+    default         no;
+    alpha.floe;
+    U;
+    rho;
+    p_rgh;
+    pcorr;
+}
+// ************************************************************************* //
