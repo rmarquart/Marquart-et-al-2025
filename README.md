@@ -1,6 +1,6 @@
 # Coupled Sea Ice Dynamics and Thermodynamics Simulations
 
-This repository contains all necessary data, scripts, simulation, and solver files for the study presented in **Marquart et al. (2025)**. The study focuses on coupled (and decoupled) sea ice dynamics and thermodynamics simulations using **OpenFOAM** and **Python**.
+This repository contains all necessary data, scripts, simulation, and solver files for the study presented in **Marquart et al. (2025)**. The study focuses on coupled (and decoupled) sea ice dynamics and thermodynamics simulations using [**OpenFOAM**](https://www.openfoam.com/) and **Python**.
 
 ---
 
@@ -73,8 +73,7 @@ Contains OpenFOAM solvers used in the simulations:
 ## 📌 Citation
 If you use this repository, please cite:
 
-**Marquart et al. (2025)**  
-*Coupled Sea Ice Dynamics and Thermodynamics Simulations using OpenFOAM and Python*
+Marquart, R., Alberello, A., Bogaers, A., De Santi, F., Vichi, M., 2025. WIce-FOAM 1.0: Coupled dynamic and thermodynamic modelling of heterogeneous sea ice and waves using OpenFOAM-v2306. EGUsphere 1–35. https://doi.org/10.5194/egusphere-2025-2184
 
 ---
 
